@@ -1,4 +1,5 @@
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
+vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover)
 
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<leader>f', telescope.find_files)
