@@ -1,7 +1,10 @@
 return {
     'neovim/nvim-lspconfig',
+    dependencies = { 'lukas-reineke/lsp-format.nvim' },
     config = function()
         local lspconfig = require('lspconfig')
+
+        require('lsp-format').setup({})
 
         for _, name in ipairs({
             'lua_ls',
