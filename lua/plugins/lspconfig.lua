@@ -20,6 +20,7 @@ return {
         for _, name in ipairs({
             'golangci_lint_ls',
             'ts_ls',
+            'eslint',
         }) do
             lspconfig[name].setup({})
         end
