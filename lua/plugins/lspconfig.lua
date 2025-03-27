@@ -11,6 +11,7 @@ return {
             'gopls',
             'tinymist',
             'biome',
+            'pyright',
         }) do
             lspconfig[name].setup({
                 on_attach = require('lsp-format').on_attach,
