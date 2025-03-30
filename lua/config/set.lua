@@ -11,3 +11,4 @@ vim.opt.expandtab = true
 vim.opt.smarttab = true
 
 vim.g.mapleader = ' '
+vim.diagnostic.config({ virtual_lines = true })
