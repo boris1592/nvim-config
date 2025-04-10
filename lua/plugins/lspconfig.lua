@@ -12,6 +12,7 @@ return {
             'tinymist',
             'biome',
             'pyright',
+            'svelte',
         }) do
             lspconfig[name].setup({
                 on_attach = require('lsp-format').on_attach,
