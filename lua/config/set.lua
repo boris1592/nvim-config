@@ -12,3 +12,4 @@ vim.opt.smarttab = true
 
 vim.g.mapleader = ' '
 vim.diagnostic.config({ virtual_lines = true })
+vim.opt.swapfile = false
