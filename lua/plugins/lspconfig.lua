@@ -9,6 +9,7 @@ return {
         for _, name in ipairs({
             'lua_ls',
             'gopls',
+            'rust_analyzer',
             'tinymist',
             'biome',
             'pyright',
