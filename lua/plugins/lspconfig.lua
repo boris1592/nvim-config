@@ -3,8 +3,9 @@ return {
     dependencies = { 'lukas-reineke/lsp-format.nvim' },
     config = function()
         local lspconfig = require('lspconfig')
+        local lspformat = require('lsp-format')
 
-        require('lsp-format').setup({})
+        lspformat.setup({})
 
         for _, name in ipairs({
             'lua_ls',
@@ -16,7 +17,7 @@ return {
             'svelte',
         }) do
             lspconfig[name].setup({
-                on_attach = require('lsp-format').on_attach,
+                on_attach = lspformat.on_attach,
             })
         end
 
@@ -28,9 +29,16 @@ return {
         end
 
         lspconfig.nil_ls.setup({
-            on_attach = require('lsp-format').on_attach,
+            on_attach = lspformat.on_attach,
             settings = {
                 ['nil'] = { formatting = { command = { 'alejandra', '--' } } },
+            },
+        })
+
+        lspconfig.gopls.setup({
+            on_attach = lspformat.on_attach,
+            settings = {
+                gopls = { buildFlags = { '-tags=integration' } },
             },
         })
     end,
