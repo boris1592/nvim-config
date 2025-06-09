@@ -1,15 +1,18 @@
 return {
     'neovim/nvim-lspconfig',
-    dependencies = { 'lukas-reineke/lsp-format.nvim' },
+    dependencies = {
+        'saghen/blink.cmp',
+        'lukas-reineke/lsp-format.nvim',
+    },
     config = function()
         local lspconfig = require('lspconfig')
         local lspformat = require('lsp-format')
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
 
         lspformat.setup({})
 
         for _, name in ipairs({
             'lua_ls',
-            'gopls',
             'rust_analyzer',
             'tinymist',
             'biome',
@@ -18,18 +21,19 @@ return {
         }) do
             lspconfig[name].setup({
                 on_attach = lspformat.on_attach,
+                capabilities = capabilities,
             })
         end
 
         for _, name in ipairs({
             'ts_ls',
-            'eslint',
         }) do
             lspconfig[name].setup({})
         end
 
         lspconfig.nil_ls.setup({
             on_attach = lspformat.on_attach,
+            capabilities = capabilities,
             settings = {
                 ['nil'] = { formatting = { command = { 'alejandra', '--' } } },
             },
@@ -37,6 +41,7 @@ return {
 
         lspconfig.gopls.setup({
             on_attach = lspformat.on_attach,
+            capabilities = capabilities,
             settings = {
                 gopls = { buildFlags = { '-tags=integration' } },
             },
