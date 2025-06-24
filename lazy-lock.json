@@ -1,10 +1,9 @@
 {
-  "blink.cmp": { "branch": "main", "commit": "fe7c97455a375259a480c496fe3410c52ac004dc" },
+  "blink.cmp": { "branch": "main", "commit": "644fef327d3099fbf3be478735b3b55d9d4b74a3" },
   "gitsigns.nvim": { "branch": "main", "commit": "1b0350ab707713b2bc6c236151f1a324175347b1" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "leap.nvim": { "branch": "main", "commit": "10c14af4ddfb34dbd7721f0bfb2b4d91f0558907" },
   "lsp-format.nvim": { "branch": "master", "commit": "42d1d3e407c846d95f84ea3767e72ed6e08f7495" },
-  "lualine.nvim": { "branch": "master", "commit": "a94fc68960665e54408fe37dcf573193c4ce82c9" },
   "nightfox.nvim": { "branch": "main", "commit": "ba47d4b4c5ec308718641ba7402c143836f35aa9" },
   "nvim-lspconfig": { "branch": "master", "commit": "5e0e9c00d51fcb7efef0d4c49023f9593b38661e" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
