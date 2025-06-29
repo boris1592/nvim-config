@@ -4,3 +4,4 @@
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 
 vim.keymap.set('n', '-', '<CMD>Oil<CR>')
+vim.keymap.set('n', '<leader><leader>', '<C-^>')
