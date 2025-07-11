@@ -4,19 +4,19 @@ return {
     config = function()
         local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-        local fmtGroup = vim.api.nvim_create_augroup('LspFormatting', {})
+        local fmt_group = vim.api.nvim_create_augroup('LspFormatting', {})
 
-        local function onAttachFmt(_, buf)
-            vim.api.nvim_clear_autocmds({ group = fmtGroup, buffer = buf })
+        local function on_attach_fmt(_, buf)
+            vim.api.nvim_clear_autocmds({ group = fmt_group, buffer = buf })
             vim.api.nvim_create_autocmd('BufWritePre', {
-                group = fmtGroup,
+                group = fmt_group,
                 buffer = buf,
                 callback = function() vim.lsp.buf.format() end,
             })
         end
 
         -- Just so that the names aren't repeated twice for some LSPs
-        local function setupLsp(name, cfg)
+        local function setup_lsp(name, cfg)
             vim.lsp.enable(name)
             vim.lsp.config(name, cfg)
         end
@@ -28,9 +28,9 @@ return {
             'biome',
             'svelte',
         }) do
-            setupLsp(name, {
+            setup_lsp(name, {
                 capabilities = capabilities,
-                on_attach = onAttachFmt,
+                on_attach = on_attach_fmt,
             })
         end
 
@@ -38,31 +38,31 @@ return {
             'pyright',
             'ts_ls',
         }) do
-            setupLsp(name, { capabilities = capabilities })
+            setup_lsp(name, { capabilities = capabilities })
         end
 
-        setupLsp('nil_ls', {
+        setup_lsp('nil_ls', {
             capabilities = capabilities,
-            on_attach = onAttachFmt,
+            on_attach = on_attach_fmt,
             settings = {
                 ['nil'] = { formatting = { command = { 'alejandra', '--' } } },
             },
         })
 
-        setupLsp('gopls', {
+        setup_lsp('gopls', {
             capabilities = capabilities,
-            on_attach = onAttachFmt,
+            on_attach = on_attach_fmt,
             settings = {
                 gopls = { buildFlags = { '-tags=integration' } },
             },
         })
 
-        setupLsp('gdscript', {
+        setup_lsp('gdscript', {
             capabilities = capabilities,
             on_attach = function(_, buf)
-                vim.api.nvim_clear_autocmds({ group = fmtGroup, buffer = buf })
+                vim.api.nvim_clear_autocmds({ group = fmt_group, buffer = buf })
                 vim.api.nvim_create_autocmd('BufWritePre', {
-                    group = fmtGroup,
+                    group = fmt_group,
                     buffer = buf,
                     callback = function()
                         local lines_cnt = vim.api.nvim_buf_line_count(buf)
