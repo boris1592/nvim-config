@@ -10,6 +10,7 @@ return {
         vim.keymap.set('n', '<leader>f', telescope.find_files)
         vim.keymap.set('n', '<leader>/', telescope.live_grep)
         vim.keymap.set('n', '<leader>b', telescope.buffers)
+        vim.keymap.set('n', '<leader>l', telescope.lsp_document_symbols)
         vim.keymap.set('n', '<leader>e', telescope.symbols)
     end,
 }
