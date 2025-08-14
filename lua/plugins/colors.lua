@@ -1,6 +1,6 @@
 return {
-    'sainnhe/sonokai',
+    'EdenEast/nightfox.nvim',
     config = function()
-        vim.cmd.colorscheme('sonokai')
+        vim.cmd.colorscheme('carbonfox')
     end,
 }

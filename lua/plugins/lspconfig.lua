@@ -1,9 +1,6 @@
 return {
     'neovim/nvim-lspconfig',
-    dependencies = { 'saghen/blink.cmp', },
     config = function()
-        local capabilities = require('blink.cmp').get_lsp_capabilities()
-
         local fmt_group = vim.api.nvim_create_augroup('LspFormatting', {})
 
         local function on_attach_fmt(_, buf)
@@ -28,21 +25,17 @@ return {
             'biome',
             'svelte',
         }) do
-            setup_lsp(name, {
-                capabilities = capabilities,
-                on_attach = on_attach_fmt,
-            })
+            setup_lsp(name, { on_attach = on_attach_fmt, })
         end
 
         for _, name in ipairs({
             'pyright',
             'ts_ls',
         }) do
-            setup_lsp(name, { capabilities = capabilities })
+            setup_lsp(name, {})
         end
 
         setup_lsp('nil_ls', {
-            capabilities = capabilities,
             on_attach = on_attach_fmt,
             settings = {
                 ['nil'] = { formatting = { command = { 'alejandra', '--' } } },
@@ -50,7 +43,6 @@ return {
         })
 
         setup_lsp('gopls', {
-            capabilities = capabilities,
             on_attach = on_attach_fmt,
             settings = {
                 gopls = { buildFlags = { '-tags=integration' } },
@@ -58,7 +50,6 @@ return {
         })
 
         setup_lsp('gdscript', {
-            capabilities = capabilities,
             on_attach = function(_, buf)
                 vim.api.nvim_clear_autocmds({ group = fmt_group, buffer = buf })
                 vim.api.nvim_create_autocmd('BufWritePre', {
