@@ -15,26 +15,29 @@ vim.o.swapfile = false
 
 -- Plugins
 vim.pack.add({
-  'https://github.com/tpope/vim-sleuth',
   'https://github.com/EdenEast/nightfox.nvim',
+  'https://github.com/echasnovski/mini.comment',
+  'https://github.com/echasnovski/mini.completion',
+  'https://github.com/echasnovski/mini.files',
   'https://github.com/echasnovski/mini.icons',
-  'https://github.com/echasnovski/mini.statusline',
   'https://github.com/echasnovski/mini.pick',
-  'https://github.com/stevearc/oil.nvim',
+  'https://github.com/echasnovski/mini.statusline',
   'https://github.com/ggandor/leap.nvim',
   'https://github.com/lewis6991/gitsigns.nvim',
-  'https://github.com/nvim-treesitter/nvim-treesitter',
-  'https://github.com/saghen/blink.cmp',
   'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/tpope/vim-sleuth',
 })
 
 vim.cmd.colorscheme('carbonfox')
 
+require('mini.comment').setup()
+require('mini.completion').setup()
+require('mini.files').setup()
 require('mini.icons').setup()
-require('mini.statusline').setup()
 require('mini.pick').setup()
-require('oil').setup()
-require('leap').create_default_mappings()
+require('mini.statusline').setup()
+require('leap').set_default_mappings()
 
 require('gitsigns').setup({
   current_line_blame = true,
@@ -51,17 +54,6 @@ require('nvim-treesitter.configs').setup({
     enable = true,
     additional_vim_regex_highlighting = false,
   },
-})
-
-require('blink.cmp').setup({
-  keymap = { preset = 'enter' },
-  appearance = { nerd_font_variant = 'mono' },
-  completion = { documentation = { auto_show = true } },
-  signature = { enabled = true },
-
-  -- I'm not against rust or anything but dealing with nightly (especially on nixos)
-  -- is a bit too much of a requirement from a neovim plugin.
-  fuzzy = { implementation = "lua" },
 })
 
 -- LSPs
@@ -92,7 +84,7 @@ vim.keymap.set('n', '<leader><leader>', '<C-^>')
 vim.keymap.set('n', '<leader>m', vim.lsp.buf.format)
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 
-vim.keymap.set('n', '-', '<CMD>Oil<CR>')
+vim.keymap.set('n', '-', function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end)
 vim.keymap.set('n', '<leader>f', '<CMD>Pick files<CR>')
 vim.keymap.set('n', '<leader>b', '<CMD>Pick buffers<CR>')
 vim.keymap.set('n', '<leader>/', '<CMD>Pick grep_live<CR>')
