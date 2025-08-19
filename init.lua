@@ -83,6 +83,7 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', '<leader><leader>', '<C-^>')
 vim.keymap.set('n', '<leader>m', vim.lsp.buf.format)
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
 
 vim.keymap.set('n', '-', function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end)
 vim.keymap.set('n', '<leader>f', '<CMD>Pick files<CR>')
