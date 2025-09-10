@@ -15,7 +15,6 @@ vim.o.swapfile = false
 
 -- Plugins
 vim.pack.add({
-  'https://github.com/EdenEast/nightfox.nvim',
   'https://github.com/echasnovski/mini.comment',
   'https://github.com/echasnovski/mini.completion',
   'https://github.com/echasnovski/mini.files',
@@ -24,12 +23,11 @@ vim.pack.add({
   'https://github.com/echasnovski/mini.statusline',
   'https://github.com/ggandor/leap.nvim',
   'https://github.com/lewis6991/gitsigns.nvim',
+  'https://github.com/loctvl842/monokai-pro.nvim',
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/nvim-treesitter/nvim-treesitter',
   'https://github.com/tpope/vim-sleuth',
 })
-
-vim.cmd.colorscheme('carbonfox')
 
 require('mini.comment').setup()
 require('mini.completion').setup()
@@ -42,6 +40,12 @@ require('leap').set_default_mappings()
 require('gitsigns').setup({
   current_line_blame = true,
 })
+
+require('monokai-pro').setup({
+  filter = 'spectrum',
+})
+
+vim.cmd.colorscheme('monokai-pro')
 
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
