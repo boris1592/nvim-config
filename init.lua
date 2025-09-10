@@ -17,7 +17,6 @@ vim.o.swapfile = false
 vim.pack.add({
   'https://github.com/echasnovski/mini.comment',
   'https://github.com/echasnovski/mini.completion',
-  'https://github.com/echasnovski/mini.files',
   'https://github.com/echasnovski/mini.icons',
   'https://github.com/echasnovski/mini.pick',
   'https://github.com/echasnovski/mini.statusline',
@@ -26,16 +25,17 @@ vim.pack.add({
   'https://github.com/loctvl842/monokai-pro.nvim',
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/stevearc/oil.nvim',
   'https://github.com/tpope/vim-sleuth',
 })
 
 require('mini.comment').setup()
 require('mini.completion').setup()
-require('mini.files').setup()
 require('mini.icons').setup()
 require('mini.pick').setup()
 require('mini.statusline').setup()
 require('leap').set_default_mappings()
+require('oil').setup()
 
 require('gitsigns').setup({
   current_line_blame = true,
@@ -89,7 +89,7 @@ vim.keymap.set('n', '<leader>m', vim.lsp.buf.format)
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
 
-vim.keymap.set('n', '-', function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end)
+vim.keymap.set('n', '-', '<CMD>Oil<CR>')
 vim.keymap.set('n', '<leader>f', '<CMD>Pick files<CR>')
 vim.keymap.set('n', '<leader>b', '<CMD>Pick buffers<CR>')
 vim.keymap.set('n', '<leader>/', '<CMD>Pick grep_live<CR>')
