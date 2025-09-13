@@ -68,6 +68,8 @@ vim.lsp.enable({
   'nil_ls',
   'tinymist',
   'gdscript',
+  'biome',
+  'ts_ls',
 })
 
 vim.lsp.config('nil_ls', {
