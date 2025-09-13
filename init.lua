@@ -45,7 +45,17 @@ require('gitsigns').setup({
 
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
-    'vim', 'vimdoc', 'lua', 'rust', 'go', 'nix', 'typst', 'gdscript', 'sql', 'javascript', 'typescript',
+    'vim',
+    'vimdoc',
+    'lua',
+    'rust',
+    'go',
+    'nix',
+    'typst',
+    'javascript',
+    'typescript',
+    'gdscript',
+    'sql',
   },
   sync_install = false,
   auto_install = false,
@@ -64,6 +74,8 @@ vim.lsp.enable({
   'nil_ls',
   'tinymist',
   'gdscript',
+  'biome',
+  'ts_ls',
 })
 
 vim.lsp.config('nil_ls', {
