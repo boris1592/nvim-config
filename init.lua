@@ -23,6 +23,7 @@ vim.pack.add({
   'https://github.com/echasnovski/mini.pick',
   'https://github.com/echasnovski/mini.statusline',
   'https://github.com/ggandor/leap.nvim',
+  'https://github.com/chomosuke/typst-preview.nvim',
   'https://github.com/lewis6991/gitsigns.nvim',
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/nvim-treesitter/nvim-treesitter',
@@ -38,6 +39,13 @@ require('mini.icons').setup()
 require('mini.pick').setup()
 require('mini.statusline').setup()
 require('leap').set_default_mappings()
+
+require('typst-preview').setup({
+  dependencies_bin = {
+    tinymist = 'tinymist',
+    websocat = 'websocat',
+  },
+})
 
 require('gitsigns').setup({
   current_line_blame = true,
