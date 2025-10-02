@@ -15,6 +15,7 @@ return {
     vim.lsp.enable({
       'biome',
       'gdscript',
+      'gleam',
       'gopls',
       'lua_ls',
       'nil_ls',
@@ -25,6 +26,7 @@ return {
 
     for _, lsp in ipairs({
       'biome',
+      'gleam',
       'lua_ls',
       'rust_analyzer',
       'tinymist',
