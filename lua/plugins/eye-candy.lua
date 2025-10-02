@@ -1,19 +1,13 @@
 return {
   plugins = {
     'https://github.com/EdenEast/nightfox.nvim',
-    'https://github.com/nvim-tree/nvim-web-devicons',
-    'https://github.com/nvim-lualine/lualine.nvim',
+    'https://github.com/nvim-mini/mini.icons',
+    'https://github.com/nvim-mini/mini.statusline',
   },
   config = function()
     vim.cmd.colorscheme('carbonfox')
 
-    require('lualine').setup({
-      options = { globalstatus = true },
-      sections = {
-        lualine_c = {
-          { 'filename', path = 1 },
-        },
-      },
-    })
+    require('mini.icons').setup()
+    require('mini.statusline').setup()
   end,
 }

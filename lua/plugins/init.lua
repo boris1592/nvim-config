@@ -10,9 +10,9 @@ for _, module in ipairs({
   'gitsigns',
   'leap',
   'lspconfig',
-  'oil',
+  'mini-files',
+  'mini-pick',
   'sleuth',
-  'telescope',
   'treesitter',
   'typst-preview',
 }) do
