@@ -1,13 +1,10 @@
-return {
-  plugins = {
-    'https://github.com/EdenEast/nightfox.nvim',
-    'https://github.com/nvim-mini/mini.icons',
-    'https://github.com/nvim-mini/mini.statusline',
-  },
-  config = function()
-    vim.cmd.colorscheme('carbonfox')
+vim.pack.add({
+  'https://github.com/EdenEast/nightfox.nvim',
+  'https://github.com/nvim-mini/mini.icons',
+  'https://github.com/nvim-mini/mini.statusline',
+}, { confirm = false })
 
-    require('mini.icons').setup()
-    require('mini.statusline').setup()
-  end,
-}
+vim.cmd.colorscheme('carbonfox')
+
+require('mini.icons').setup()
+require('mini.statusline').setup()

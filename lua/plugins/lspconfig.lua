@@ -1,51 +1,48 @@
-return {
-  plugins = { 'https://github.com/neovim/nvim-lspconfig' },
-  config = function()
-    local fmt_group = vim.api.nvim_create_augroup('LspFormatting', {})
+vim.pack.add({ 'https://github.com/neovim/nvim-lspconfig' }, { confirm = false })
 
-    local function on_attach_fmt(_, buf)
-      vim.api.nvim_clear_autocmds({ group = fmt_group, buffer = buf })
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = fmt_group,
-        buffer = buf,
-        callback = function() vim.lsp.buf.format() end,
-      })
-    end
+local fmt_group = vim.api.nvim_create_augroup('LspFormatting', {})
 
-    vim.lsp.enable({
-      'biome',
-      'gdscript',
-      'gleam',
-      'gopls',
-      'lua_ls',
-      'nil_ls',
-      'rust_analyzer',
-      'tinymist',
-      'ts_ls',
-    })
+local function on_attach_fmt(_, buf)
+  vim.api.nvim_clear_autocmds({ group = fmt_group, buffer = buf })
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    group = fmt_group,
+    buffer = buf,
+    callback = function() vim.lsp.buf.format() end,
+  })
+end
 
-    for _, lsp in ipairs({
-      'biome',
-      'gleam',
-      'lua_ls',
-      'rust_analyzer',
-      'tinymist',
-    }) do
-      vim.lsp.config(lsp, { on_attach = on_attach_fmt })
-    end
+vim.lsp.enable({
+  'biome',
+  'gdscript',
+  'gleam',
+  'gopls',
+  'lua_ls',
+  'nil_ls',
+  'rust_analyzer',
+  'tinymist',
+  'ts_ls',
+})
 
-    vim.lsp.config('nil_ls', {
-      on_attach = on_attach_fmt,
-      settings = {
-        ['nil'] = { formatting = { command = { 'alejandra', '--' } } },
-      },
-    })
+for _, lsp in ipairs({
+  'biome',
+  'gleam',
+  'lua_ls',
+  'rust_analyzer',
+  'tinymist',
+}) do
+  vim.lsp.config(lsp, { on_attach = on_attach_fmt })
+end
 
-    vim.lsp.config('gopls', {
-      on_attach = on_attach_fmt,
-      settings = {
-        gopls = { buildFlags = { '-tags=integration' } },
-      },
-    })
-  end,
-}
+vim.lsp.config('nil_ls', {
+  on_attach = on_attach_fmt,
+  settings = {
+    ['nil'] = { formatting = { command = { 'alejandra', '--' } } },
+  },
+})
+
+vim.lsp.config('gopls', {
+  on_attach = on_attach_fmt,
+  settings = {
+    gopls = { buildFlags = { '-tags=integration' } },
+  },
+})
