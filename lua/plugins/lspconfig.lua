@@ -18,6 +18,7 @@ vim.lsp.enable({
   'gopls',
   'lua_ls',
   'nil_ls',
+  'protols',
   'rust_analyzer',
   'tinymist',
   'ts_ls',
@@ -27,6 +28,7 @@ for _, lsp in ipairs({
   'biome',
   'gleam',
   'lua_ls',
+  'protols',
   'rust_analyzer',
   'tinymist',
 }) do
