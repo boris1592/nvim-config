@@ -45,6 +45,6 @@ vim.lsp.config('nil_ls', {
 vim.lsp.config('gopls', {
   on_attach = on_attach_fmt,
   settings = {
-    gopls = { buildFlags = { '-tags=integration' } },
+    gopls = { buildFlags = { '-tags=integration,api_tests' } },
   },
 })
