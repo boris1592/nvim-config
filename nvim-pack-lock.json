@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "2408f14",
+      "rev": "40380e7",
       "src": "https://github.com/Saghen/blink.cmp"
     },
     "gitsigns.nvim": {
@@ -9,27 +9,27 @@
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "mini.extra": {
-      "rev": "188422c",
+      "rev": "7a5231f",
       "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.files": {
-      "rev": "d5c1337",
+      "rev": "dce9a4e",
       "src": "https://github.com/nvim-mini/mini.files"
     },
     "mini.icons": {
-      "rev": "2847986",
+      "rev": "ff2e4f1",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.jump2d": {
-      "rev": "5ff7499",
+      "rev": "7a089cb",
       "src": "https://github.com/nvim-mini/mini.jump2d"
     },
     "mini.pick": {
-      "rev": "bb764a5",
+      "rev": "08a7220",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "mini.statusline": {
-      "rev": "faa3977",
+      "rev": "1491990",
       "src": "https://github.com/nvim-mini/mini.statusline"
     },
     "nightfox.nvim": {
@@ -37,7 +37,7 @@
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "a89bfcf",
+      "rev": "2010fc6",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
