@@ -1,4 +1,5 @@
 require('plugins.blink-cmp')
+require('plugins.diffview')
 require('plugins.eye-candy')
 require('plugins.gitsigns')
 require('plugins.lspconfig')
