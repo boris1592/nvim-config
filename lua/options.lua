@@ -15,3 +15,6 @@ vim.diagnostic.config({ virtual_text = true })
 
 vim.keymap.set('n', '<leader><leader>', '<C-^>')
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
+
+-- The only way to kill bad muscle memory
+vim.keymap.set({ 'n', 'v' }, '_', "")
