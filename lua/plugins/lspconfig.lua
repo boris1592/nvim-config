@@ -12,7 +12,6 @@ local function on_attach_fmt(_, buf)
 end
 
 vim.lsp.enable({
-  'biome',
   'gdscript',
   'gleam',
   'gopls',
@@ -24,7 +23,6 @@ vim.lsp.enable({
 })
 
 for _, lsp in ipairs({
-  'biome',
   'gleam',
   'lua_ls',
   'rust_analyzer',
