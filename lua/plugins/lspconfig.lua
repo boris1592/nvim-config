@@ -16,7 +16,8 @@ vim.lsp.enable({
   'gleam',
   'gopls',
   'lua_ls',
-  'nil_ls',
+  'oxfmt',
+  'oxlint',
   'rust_analyzer',
   'tinymist',
   'ts_ls',
@@ -27,16 +28,10 @@ for _, lsp in ipairs({
   'lua_ls',
   'rust_analyzer',
   'tinymist',
+  'oxfmt',
 }) do
   vim.lsp.config(lsp, { on_attach = on_attach_fmt })
 end
-
-vim.lsp.config('nil_ls', {
-  on_attach = on_attach_fmt,
-  settings = {
-    ['nil'] = { formatting = { command = { 'alejandra', '--' } } },
-  },
-})
 
 vim.lsp.config('gopls', {
   on_attach = on_attach_fmt,
