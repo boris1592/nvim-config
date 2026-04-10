@@ -16,6 +16,7 @@ vim.lsp.enable({
   'gleam',
   'gopls',
   'lua_ls',
+  'omnisharp',
   'oxfmt',
   'oxlint',
   'rust_analyzer',
