@@ -10,6 +10,7 @@ local parsers = {
   'markdown',
   'rust',
   'sql',
+  'svelte',
   'typescript',
   'typst',
   'vim',
